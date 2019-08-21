@@ -1,0 +1,201 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo 
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+  a4paper, 
+%   showframes,
+%   maincolor=cvgreen,
+%   sectioncolor=red,
+%   subsectioncolor=orange
+%   sidebarwidth=0.4\paperwidth,
+%   topbottommargin=0.03\paperheight,
+%   leftrightmargin=20pt
+]{fortysecondscv}
+
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% take care of proper font encoding
+\ifxetex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+% \newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+%float to set up presicent of images
+\usepackage{float}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+  % defaut font size is \large, so adjust to harmonize with sidebar layout
+  bubble center node font = \footnotesize,
+  bubble node font = \footnotesize,
+  % default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+  bubble center node size = 0.4\sidebartextwidth,
+  bubble node size = 0.25\sidebartextwidth,
+  distance center/other bubbles = 1.5em,
+  % set center bubble color
+  bubble center node color = maincolor!70,
+  % define the list of colors usable in the diagram
+  set color list = {maincolor!10, maincolor!40,
+  maincolor!20, maincolor!60, maincolor!35},
+  % sets the opacity at which the bubbles are shown
+  bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% profile picture
+\cvprofilepic{pics/phamminhphu}
+% your name
+\cvname{PHAM MINH PHU}
+% job title/career
+\cvjobtitle{Structral Design Engineer}
+% date of birth
+\cvbirthday{Mar 9, 1997}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Bach Khoa Dormitory , Distric 10 ,\newline Ho Chi Minh City}
+% phone number
+\cvphone{0336 77 3935}
+% personal website
+\cvsite{facebook.com/phamminhphu.9397}
+% email address
+\cvmail{1512494@hcmut.edu.vn}
+% pgp key
+
+% add additional information
+% \newcommand{\additional}{some more?}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% overwrite default icons and order of personal information
+% \renewcommand{\personaltable}{%
+% 	\begin{personal}[0.8em]
+% 		\circleicon{\faKey}      & \cvkey  \\
+% 		\circleicon{\faAt}       & \cvmail \\
+% 		\circleicon{\faGlobe}    & \cvsite \\
+% 		\circleicon{\faPhone}    & \cvphone \\
+% 		\circleicon{\faEnvelope} & \cvaddress \\
+% 		\circleicon{\faInfo}     & \cvbirthday \\
+% 		% add another line
+% 		\circleicon{\faQuestion} & \additional
+% 	\end{personal}
+% }
+
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	\profilesection{Languages}
+		\pointskill{\flag{english}}{English}{3}
+		TOEIC 665
+		
+	\graphicspath{{pics/flags/}}
+	
+	\profilesection{Technical Skills}
+		\pointskill{\flag{autocad}}{Autocad}{3}
+		\pointskill{\flag{csi}}{Etabs,Safe}{3}
+		\pointskill{\flag{office}}{Word,Excel}{3}
+    \profilesection{About Me}
+	\aboutme{
+	I love freedom and movement so I am a dynamic man ,\\I am not an inteligent person but always try my best to become better.\\ 
+	}
+	\profilesection{Maxim live}
+    \textit{I can do everything I want except 3 "No"}	
+	\profilesection{Future Direction}
+    Want to work in many position to understand overall about this major then become a BIM Manager and improve English to work oversea 
+}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Working Experience}
+
+\begin{cvtable}
+	\cvitem{Currently}{Thesis}{HCMUT}
+    {Project : VCN Nha Trang Office \\Structral(70),Foundation(30)\\}
+    \cvitem{06-08/2018}{Internship}{Hoa Binh Corporation}
+    {Project : CH2 Building,GoVap Distric,Hochiminh City\\Work as a site engineer,reading blueprint,check rebar in components of the building,\\Doing daily report\\ Doing bill of quantities \\}
+    \cvitem{11-12/2018}{Partime}{VT Company}
+    {Work as a shopdrawing ,export detail rebar drawing and report,check rebar,..\\ 
+    Create structral modeling use Etabs and Safe}
+    
+\end{cvtable}
+
+\cvsection{Education}
+\subsection{Study}
+\begin{cvtable}
+
+    \cvitem{1997 -- 2015}{Live and study at Nam Dinh Provine}{}
+    {\\}
+	\cvitem{2015 -- 2019}{Study at Hochiminh University Of Technology }{}
+    {Major : Civil Engineer\\GPA : 6.61\\Major GPA : 7.13\\}
+    
+    \cvitem{Nearly}{Take some courses at BIM Office of HCMUT }{}
+    {About Sap2000,Revit,Robot Structral Analysis\\}
+    
+\end{cvtable}
+
+\cvsection{Extra-Curricular Activities}\\
+\begin{tabular}{m{5cm} m{5cm}}
+    \includegraphics[width=0.2\linewidth]{pics/hienmau.png} & \includegraphics[width=0.2\linewidth]{pics/tiepsuc.jpg} \\
+     Voluntary blood donation & Support Competency \newline Examination
+\end{tabular}
+\\
+\cvsection{Hobbies}\\
+\begin{tabular}{m{5cm} m{5cm} m{5cm}}
+    \includegraphics[width=0.2\linewidth]{pics/book.jpg} & \includegraphics[width=0.2\linewidth]{pics/exercise.png} &\includegraphics[width=0.2\linewidth]{pics/music.jpg}\\
+     Reading book & Do exercise & Listening music
+\end{tabular}
+\\
+\cvsection{A Day Of Me}
+\vspace{1cm}
+\centering
+% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% \wheelchart{outer radius}{inner radius}{
+% comma-separated list of value/text width/color/detail}
+\wheelchart{1.5cm}{0.5cm}{
+    2/8em/orange!30/Time for family,
+    3/8em/orange!40/Personal activities,
+    8/8em/orange!60/Daytime job ,
+    4/8em/orange!60/Thesis ,
+    2/10em/orange/Sports and relaxation,
+    6/6em/orange!20/Sleep
+}
+
+
+\cvsignature
+
+\end{document} 
